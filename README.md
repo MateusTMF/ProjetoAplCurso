@@ -1,2 +1,2 @@
 # ProjetoAplCurso
-Projeto desenvolvido na disciplina de Laboratório de Programação IV
+Projeto desenvolvido na disciplina de Laboratório de Programação
