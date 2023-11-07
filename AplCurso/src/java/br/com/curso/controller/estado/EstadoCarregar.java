@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package br.com.curso.controller.estado;
 
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author muril
+ * @author jeffe
  */
 @WebServlet(name = "EstadoCarregar", urlPatterns = {"/EstadoCarregar"})
 public class EstadoCarregar extends HttpServlet {
@@ -32,16 +33,16 @@ public class EstadoCarregar extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         response.setContentType("text/html;charset=iso-8859-1");
-         int idEstado = Integer.parseInt(request.getParameter("idEstado"));
-         try{
-             GenericDAO dao = new EstadoDAO();
-             request.setAttribute("estado", dao.carregar(idEstado));
-             request.getRequestDispatcher("cadastros/estado/estadoCadastrar.jsp").forward(request, response);
-         }catch (Exception e){
-             System.out.println("Problemas na Servlet carregar despesa! Erro: " + e.getMessage());
-             e.printStackTrace();
-         }
+        response.setContentType("text/html;charset=iso-8859-1");
+        int idEstado = Integer.parseInt(request.getParameter("idEstado"));
+        try {
+            GenericDAO dao = new EstadoDAO();
+            request.setAttribute("estado", dao.carregar(idEstado));            
+            request.getRequestDispatcher("cadastros/estado/estadoCadastrar.jsp").forward(request, response);
+        } catch (Exception e) {
+            System.out.println("Problema na Servelet carrregar despesa!Erro: " + e.getMessage());
+            e.printStackTrace();
+        }     
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

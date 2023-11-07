@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package br.com.curso.controller.cidade;
 
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author muril
+ * @author jeffe
  */
 @WebServlet(name = "CidadeCadastrar", urlPatterns = {"/CidadeCadastrar"})
 public class CidadeCadastrar extends HttpServlet {
@@ -34,32 +35,33 @@ public class CidadeCadastrar extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            response.setContentType("text/html;charset=iso-8859-1");
-            int idCidade = Integer.parseInt(request.getParameter("idcidade"));
-            int idEstado = Integer.parseInt(request.getParameter("idestado"));
-            String nomeCidade = request.getParameter("nomecidade");
-            String situacao = request.getParameter("situacao");
-            String mensagem = null;
+        response.setContentType("text/html;charset=iso-8859-1");
+        int idCidade = Integer.parseInt(request.getParameter("idcidade"));
+        int idEstado = Integer.parseInt(request.getParameter("idestado"));
+        String nomeCidade = request.getParameter("nomecidade");
+        String situacao = request.getParameter("situacao");
+        String mensagem = null;
+
+        try{
             
-            try{
-                Cidade oCidade = new Cidade();
-                oCidade.setIdCidade(idCidade);
-                oCidade.setNomeCidade(nomeCidade);
-                oCidade.setSituacao(situacao);
-                oCidade.setEstado(new Estado(idEstado, "", ""));
-                
-                GenericDAO dao = new CidadeDAO();
-                if(dao.cadastrar(oCidade)){
-                    mensagem = "Cidade cadastrado!";
-                }else{
-                    mensagem = "Problemas ao cadastrar Cidade! Verifique os dados informados";
-                }
-                request.setAttribute("mensagem", mensagem);
-                response.sendRedirect("CidadeListar");
-            }catch (Exception ex){
-                System.out.println("Problemas no Servlet ao cadastrar Cidade! Erro :" + ex.getMessage());
-                ex.printStackTrace();
+            Cidade oCidade = new Cidade();
+            oCidade.setIdCidade(idCidade);
+            oCidade.setNomeCidade(nomeCidade);
+            oCidade.setSituacao(situacao);
+            oCidade.setEstado(new Estado(idEstado,"",""));
+            
+            GenericDAO dao = new CidadeDAO();
+            if (dao.cadastrar(oCidade)){
+                mensagem = "Cidade cadastrado com sucesso!";                
+            } else {
+                mensagem = "Problemas ao cadastrar Cidade.Verifique os dados informados e tente novamente!";
             }
+            request.setAttribute("mensagem", mensagem);
+            response.sendRedirect("CidadeListar");
+        } catch (Exception ex){
+             System.out.println("Problemas no Servlet ao cadastrar Cidade! Erro: " + ex.getMessage());
+             ex.printStackTrace();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

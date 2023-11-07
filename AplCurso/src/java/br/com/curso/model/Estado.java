@@ -1,15 +1,15 @@
-
 package br.com.curso.model;
 
 public class Estado {
+    
     private int idEstado;
     private String nomeEstado;
     private String siglaEstado;
 
     public Estado() {
         this.idEstado = 0;
-        this.nomeEstado = "";
-        this.siglaEstado = "";
+        this.nomeEstado ="";
+        this.siglaEstado ="";
     }
 
     public Estado(int idEstado, String nomeEstado, String siglaEstado) {
@@ -41,5 +41,4 @@ public class Estado {
     public void setSiglaEstado(String siglaEstado) {
         this.siglaEstado = siglaEstado;
     }
-    
 }

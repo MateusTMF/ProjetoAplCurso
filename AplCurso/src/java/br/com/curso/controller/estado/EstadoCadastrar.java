@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package br.com.curso.controller.estado;
 
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author muril
+ * @author jeffe
  */
 @WebServlet(name = "EstadoCadastrar", urlPatterns = {"/EstadoCadastrar"})
 public class EstadoCadastrar extends HttpServlet {
@@ -38,23 +39,22 @@ public class EstadoCadastrar extends HttpServlet {
         String nomeEstado = request.getParameter("nomeestado");
         String siglaEstado = request.getParameter("siglaestado");
         String mensagem = null;
-        
+
         Estado oEstado = new Estado();
         oEstado.setIdEstado(idEstado);
         oEstado.setNomeEstado(nomeEstado);
         oEstado.setSiglaEstado(siglaEstado);
-        
         try{
             GenericDAO dao = new EstadoDAO();
             if (dao.cadastrar(oEstado)){
-                mensagem = "Estado cadastrado com sucesso!";
-            } else{
-                mensagem = "Problemas ao cadastrar Estado. Verifique os dados informados e tente novamente";
+                mensagem = "Estado cadastrado com sucesso!";                
+            } else {
+                mensagem = "Problemas ao cadastrar Estado.Verifique os dados informados e tente novamente!";
             }
             request.setAttribute("mensagem", mensagem);
             response.sendRedirect("EstadoListar");
-        } catch (Exception ex) {
-            System.out.println("Problemas no servlet ao cadastrar Estado! Erro: " + ex.getMessage());
+        } catch (Exception ex){
+             System.out.println("Problemas no Servlet ao cadastrar Estado! Erro: " + ex.getMessage());
         }
     }
 

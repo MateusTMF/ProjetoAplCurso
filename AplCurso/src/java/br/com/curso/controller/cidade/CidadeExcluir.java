@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package br.com.curso.controller.cidade;
 
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author muril
+ * @author jeffe
  */
 @WebServlet(name = "CidadeExcluir", urlPatterns = {"/CidadeExcluir"})
 public class CidadeExcluir extends HttpServlet {
@@ -32,23 +33,22 @@ public class CidadeExcluir extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            response.setContentType("text/html;charset=iso-8859-1");
-            int idCidade = Integer.parseInt(request.getParameter("idCidade"));
-            String mensagem = null;
-            
-            try{
-                GenericDAO dao = new CidadeDAO();
-                if(dao.excluir(idCidade)){
-                    mensagem = "Cidade excluida com sucesso ";
-                }else{
-                    mensagem = "Probleamas ao excluir ciadade";
-                }
-                request.setAttribute("mensagem", mensagem);
-                response.sendRedirect("CidadeListar");
-            }catch(Exception ex){
-                System.out.println("Problemas nos Servlet ao excluir Cidade! Erro: " + ex.getMessage());
-                ex.printStackTrace();
+        response.setContentType("text/html;charset=iso-8859-1");
+        int idCidade = Integer.parseInt(request.getParameter("idCidade"));
+        String mensagem = null;
+        try {
+            GenericDAO dao = new CidadeDAO();
+            if (dao.excluir(idCidade)) {
+                mensagem = "Cidade excluido com Sucesso!";
+            } else {
+                mensagem = "Problemas ao excluir Cidade";
             }
+            request.setAttribute("mensagem", mensagem);            
+            response.sendRedirect("CidadeListar");
+        } catch (Exception ex) {
+            System.out.println("Problemas no Servelet ao excluir Cidade! Erro: "+ ex.getMessage());
+            ex.printStackTrace();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

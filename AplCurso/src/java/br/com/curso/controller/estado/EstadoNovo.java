@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package br.com.curso.controller.estado;
 
@@ -15,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author muril
+ * @author jeffe
  */
 @WebServlet(name = "EstadoNovo", urlPatterns = {"/EstadoNovo"})
 public class EstadoNovo extends HttpServlet {
@@ -32,7 +33,7 @@ public class EstadoNovo extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=iso-8859-1");
-        //cria objeto de Estado vazio e seta o if como zero
+        //Cria objeto de Estado vazio e seta o id como zero
         Estado oEstado = new Estado();
         //cria variavel no servidor para armazenar objeto de Estado
         request.setAttribute("estado", oEstado);

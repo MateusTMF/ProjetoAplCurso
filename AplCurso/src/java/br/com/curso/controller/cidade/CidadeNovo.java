@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package br.com.curso.controller.cidade;
 
@@ -16,6 +17,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *
+ * @author jeffe
+ */
 @WebServlet(name = "CidadeNovo", urlPatterns = {"/CidadeNovo"})
 public class CidadeNovo extends HttpServlet {
 
@@ -30,17 +35,16 @@ public class CidadeNovo extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
-             response.setContentType("text/html;charset=iso-8859-1");
-            // cria objeto cidade vazio e set o id = 0
-            Cidade oCidade = new Cidade();
-            // cria variavel no servidor para armazenar objeto cidade
-            request.setAttribute("cidade", oCidade);
-            //busca uma lista de estados para alimentar a caixa de selecao na view (jsp)
-            EstadoDAO oEstadoDAO = new EstadoDAO();
-            request.setAttribute("estados", oEstadoDAO.listar());
-            // dispacha os objetos da cidade e a lista de estados para a pagina jsp
-            request.getRequestDispatcher("/cadastros/cidade/cidadeCadastrar.jsp").forward(request, response);
-        
+        response.setContentType("text/html;charset=iso-8859-1");
+        //Cria objeto de Cidade vazio e seta o id como zero
+        Cidade oCidade = new Cidade();
+        //cria variavel no servidor para armazenar objeto de Cidade
+        request.setAttribute("cidade", oCidade);
+        //busca uma lista de estados para alimentar a caixa de seleção na view (jsp)
+        EstadoDAO oEstadoDAO = new EstadoDAO();
+        request.setAttribute("estados", oEstadoDAO.listar());
+        //dispacha os objetos de cidade e a lista de estados para a pagina jsp
+        request.getRequestDispatcher("/cadastros/cidade/cidadeCadastrar.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

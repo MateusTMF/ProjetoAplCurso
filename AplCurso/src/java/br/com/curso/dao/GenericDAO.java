@@ -1,5 +1,6 @@
 
 package br.com.curso.dao;
+
 import java.util.List;
 
 public interface GenericDAO {

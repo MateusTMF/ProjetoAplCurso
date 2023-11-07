@@ -1,10 +1,10 @@
-
 package br.com.curso.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class SingleConnection {
+   
     private static Connection conexao = null;
     private static String servidor = "jdbc:postgresql://localhost:5432/bdaplcurso?autoReconnect=true";
     private static String usuario = "postgres";
@@ -24,18 +24,18 @@ public class SingleConnection {
     }
     
     public static void conectar() throws Exception {
-        try{
-            if(conexao == null){
+        try {
+            if (conexao == null){
                 Class.forName("org.postgresql.Driver");
-                conexao = DriverManager.getConnection(servidor, usuario, senha);
+                conexao = DriverManager.getConnection(servidor, usuario, senha);        
                 conexao.setAutoCommit(false);
             }
-        } catch (Exception ex){
+        } catch (Exception ex) {
             throw new Exception(ex.getMessage());
         }
     }
     
     public static Connection getConnection(){
         return conexao;
-    }
+    }  
 }

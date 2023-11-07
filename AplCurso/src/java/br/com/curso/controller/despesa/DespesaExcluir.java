@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package br.com.curso.controller.despesa;
 
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author matef
+ * @author jeffe
  */
 @WebServlet(name = "DespesaExcluir", urlPatterns = {"/DespesaExcluir"})
 public class DespesaExcluir extends HttpServlet {
@@ -33,18 +34,21 @@ public class DespesaExcluir extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=iso-8859-1");
-        int iddespesa = Integer.parseInt(request.getParameter("iddespesa"));
+        int idDespesa = Integer.parseInt(request.getParameter("idDespesa"));
         String mensagem = null;
         try {
             GenericDAO dao = new DespesaDAO();
-            if(dao.excluir(iddespesa)){
+            if(dao.excluir(idDespesa)){
+                //mensagem = "Despesa Excluida com sucesso!";
                 response.getWriter().write("1");
             }else{
+                //mensagem = "Problemas ao excluir Despesa!";
                 response.getWriter().write("0");
-
             }
-        } catch(Exception e) {
-            System.out.println("Problemas no servlet ao excluir despesa. erro:"+ e.getMessage());
+            //request.setAttribute("mensagem", mensagem);
+            //response.sendRedirect("DespesaListar");
+        } catch (Exception e){
+            System.out.println("Problemas na Servelet Excluir Despesa!Erro: " + e.getMessage());
             e.printStackTrace();
         }
     }

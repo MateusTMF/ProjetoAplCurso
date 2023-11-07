@@ -1,32 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.curso.model;
 
 import java.util.Date;
 
-/**
- *
- * @author matef
- */
 public class Pessoa {
-
+  
     private int idPessoa;
-    private String nome;
     private String cpfCnpj;
+    private String nome;
     private Date dataNascimento;
-    private int idcidade;
+    private Cidade cidade;
     private String login;
     private String senha;
     private String foto;
 
-    public Pessoa(int idPessoa, String nome, String cpfCnpj, Date dataNascimento, int idcidade, String login, String senha, String foto) {
+    public Pessoa(int idPessoa, String cpfCnpj, String nome, Date dataNascimento, Cidade cidade, 
+            String login, String senha, String foto) {
         this.idPessoa = idPessoa;
-        this.nome = nome;
         this.cpfCnpj = cpfCnpj;
+        this.nome = nome;
         this.dataNascimento = dataNascimento;
-        this.idcidade = idcidade;
+        this.cidade = cidade;
         this.login = login;
         this.senha = senha;
         this.foto = foto;
@@ -40,20 +33,20 @@ public class Pessoa {
         this.idPessoa = idPessoa;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getCpfCnpj() {
         return cpfCnpj;
     }
 
     public void setCpfCnpj(String cpfCnpj) {
         this.cpfCnpj = cpfCnpj;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public Date getDataNascimento() {
@@ -64,12 +57,12 @@ public class Pessoa {
         this.dataNascimento = dataNascimento;
     }
 
-    public int getIdcidade() {
-        return idcidade;
+    public Cidade getCidade() {
+        return cidade;
     }
 
-    public void setIdcidade(int idcidade) {
-        this.idcidade = idcidade;
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
 
     public String getLogin() {
@@ -95,5 +88,4 @@ public class Pessoa {
     public void setFoto(String foto) {
         this.foto = foto;
     }
-
 }

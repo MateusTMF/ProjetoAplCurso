@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package br.com.curso.controller.estado;
 
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author muril
+ * @author jeffe
  */
 @WebServlet(name = "EstadoExcluir", urlPatterns = {"/EstadoExcluir"})
 public class EstadoExcluir extends HttpServlet {
@@ -35,17 +36,17 @@ public class EstadoExcluir extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
         int idEstado = Integer.parseInt(request.getParameter("idEstado"));
         String mensagem = null;
-        try{
+        try {
             GenericDAO dao = new EstadoDAO();
-            if(dao.excluir(idEstado)){
-                mensagem = "Estado excluido com sucesso";
-            }else{
+            if (dao.excluir(idEstado)) {
+                mensagem = "Estado excluido com Sucesso!";
+            } else {
                 mensagem = "Problemas ao excluir Estado";
             }
-            request.setAttribute("mensagem", mensagem);
+            request.setAttribute("mensagem", mensagem);            
             response.sendRedirect("EstadoListar");
-        } catch (Exception ex){
-            System.out.println("Problemas no servlet ao excluir Estado! Erro: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Problemas no Servelet ao excluir Estado! Erro: "+ ex.getMessage());
             ex.printStackTrace();
         }
     }

@@ -1,11 +1,13 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package br.com.curso.controller.cidade;
 
 import br.com.curso.dao.CidadeDAO;
 import br.com.curso.dao.EstadoDAO;
+import br.com.curso.model.Cidade;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -16,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author muril
+ * @author jeffe
  */
 @WebServlet(name = "CidadeCarregar", urlPatterns = {"/CidadeCarregar"})
 public class CidadeCarregar extends HttpServlet {
@@ -32,24 +34,23 @@ public class CidadeCarregar extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            response.setContentType("text/html;charset=iso-8859-1");
-            try{
-               int idCidade = Integer.parseInt(request.getParameter("idCidade"));
-               //cria objeto de CidadeDAO - camada dao
-               CidadeDAO oCidadeDAO = new CidadeDAO();
-               //cria variavel no servidor para armazenar objeto da Cidade com os dados carregados
-               request.setAttribute("cidade", oCidadeDAO.carregar(idCidade));
-               //busca uma lista de estados para alimentar a caixa de selecao na view (jsp)
-               EstadoDAO oEstadoDAO = new EstadoDAO();
-               request.setAttribute("estados", oEstadoDAO.listar());
-               //dispacha os objetos de cidade e a lista de estados para a pagina jsp
-               request.getRequestDispatcher("/cadastros/cidade/cidadeCadastrar.jsp").forward(request, response);
-            }catch (Exception ex){
-                System.out.println("Erro ao carregar cidade: " + ex.getMessage());
-                ex.printStackTrace();
-            }
+        response.setContentType("text/html;charset=iso-8859-1");
+        try {
+            int idCidade = Integer.parseInt(request.getParameter("idCidade"));
+            //Cria objeto de CidadeDAO - camada dao
+            CidadeDAO oCidadeDAO = new CidadeDAO();
+            //cria variavel no servidor para armazenar objeto de Cidade com os dados carregados
+            request.setAttribute("cidade", oCidadeDAO.carregar(idCidade));
+            //busca uma lista de estados para alimentar a caixa de seleção na view (jsp)
+            EstadoDAO oEstadoDAO = new EstadoDAO();
+            request.setAttribute("estados", oEstadoDAO.listar());
+            //dispacha os objetos de cidade e a lista de estados para a pagina jsp
+            request.getRequestDispatcher("/cadastros/cidade/cidadeCadastrar.jsp").forward(request, response);
+        } catch (Exception ex){
+            System.out.println("Erro carregar cidade "+ex.getMessage());
+            ex.printStackTrace();
         }
-    
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

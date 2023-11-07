@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package br.com.curso.controller.despesa;
 
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author matef
+ * @author jeffe
  */
 @WebServlet(name = "DespesaCarregar", urlPatterns = {"/DespesaCarregar"})
 public class DespesaCarregar extends HttpServlet {
@@ -33,15 +34,15 @@ public class DespesaCarregar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=iso-8859-1");
-        int iddespesa = Integer.parseInt(request.getParameter("iddespesa"));
+        int idDespesa = Integer.parseInt(request.getParameter("idDespesa"));
         try {
             GenericDAO dao = new DespesaDAO();
-            request.setAttribute("despesa", dao.carregar(iddespesa));
+            request.setAttribute("despesa", dao.carregar(idDespesa));            
             request.getRequestDispatcher("cadastros/despesa/despesaCadastrar.jsp").forward(request, response);
-        } catch (Exception e){
-            System.out.println("Problemas no servlet ao cadastrar despesas. erro:"+ e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Problema na Servelet carrregar despesa!Erro: " + e.getMessage());
             e.printStackTrace();
-        }
+        }    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
