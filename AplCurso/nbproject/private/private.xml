@@ -5,6 +5,9 @@
         <group>
             <file>file:/C:/Users/matef/OneDrive/Desktop/GitHub/ProjetoAplCurso/AplCurso/src/java/br/com/curso/controller/despesa/DespesaCarregar.java</file>
             <file>file:/C:/Users/matef/OneDrive/Desktop/GitHub/ProjetoAplCurso/AplCurso/web/footer.jsp</file>
+            <file>file:/C:/Users/matef/OneDrive/Desktop/GitHub/ProjetoAplCurso/AplCurso/src/java/br/com/curso/utils/banco.sql</file>
+            <file>file:/C:/Users/matef/OneDrive/Desktop/GitHub/ProjetoAplCurso/AplCurso/src/java/br/com/curso/utils/SingleConnection.java</file>
+            <file>file:/C:/Users/matef/OneDrive/Desktop/GitHub/ProjetoAplCurso/AplCurso/src/java/br/com/curso/controller/estado/EstadoCarregar.java</file>
         </group>
     </open-files>
 </project-private>
