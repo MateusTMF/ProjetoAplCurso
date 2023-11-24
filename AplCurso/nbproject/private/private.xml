@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/matef/Desktop/Github/ProjetoAplCurso/AplCurso/src/java/br/com/curso/controller/cidade/CidadeListar.java</file>
+            <file>file:/C:/Users/matef/Desktop/Github/ProjetoAplCurso/AplCurso/src/java/br/com/curso/model/Estado.java</file>
+            <file>file:/C:/Users/matef/Desktop/Github/ProjetoAplCurso/AplCurso/src/java/br/com/curso/controller/estado/EstadoListar.java</file>
+            <file>file:/C:/Users/matef/Desktop/Github/ProjetoAplCurso/AplCurso/src/java/br/com/curso/dao/EstadoDAO.java</file>
+            <file>file:/C:/Users/matef/Desktop/Github/ProjetoAplCurso/AplCurso/src/java/br/com/curso/utils/banco.sql</file>
+            <file>file:/C:/Users/matef/Desktop/Github/ProjetoAplCurso/AplCurso/src/java/br/com/curso/utils/SingleConnection.java</file>
+            <file>file:/C:/Users/matef/Desktop/Github/ProjetoAplCurso/AplCurso/src/java/br/com/curso/model/Pessoa.java</file>
+        </group>
     </open-files>
 </project-private>

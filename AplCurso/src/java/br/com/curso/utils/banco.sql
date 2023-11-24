@@ -1,11 +1,11 @@
 
 Create table estado(
    idestado serial primary key,
-   nomestado varchar(100) not null,
+   nomeestado varchar(100) not null,
    siglaestado varchar(2) not null
 );
 
-insert into estado(nomestado, siglaestado) values ('São Paulo', 'SP');
+insert into estado(nomeestado, siglaestado) values ('São Paulo', 'SP');
 
 create table cidade(
    idcidade serial primary key,

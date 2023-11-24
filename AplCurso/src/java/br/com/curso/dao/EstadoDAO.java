@@ -144,7 +144,7 @@ public class EstadoDAO implements GenericDAO {
             while (rs.next()) {                
                 Estado oEstado = new Estado();
                 oEstado.setIdEstado(rs.getInt("idEstado"));
-                oEstado.setNomeEstado(rs.getString("nomeestado"));
+                oEstado.setNomeEstado(rs.getString("nomeEstado"));
                 oEstado.setSiglaEstado(rs.getString("siglaestado"));
                 resultado.add(oEstado);
             }
