@@ -124,7 +124,7 @@
             precision: 2,
             affixesStay: true,
             bringCareAtEndOnFocus: true
-        })
+        });
         
         $("#valorpago").maskMoney({
             prefix: 'R$',
@@ -139,12 +139,12 @@
             precision: 2,
             affixesStay: true,
             bringCareAtEndOnFocus: true
-        })
-    })
+        });
+    });
     
     function validarCampos() {
         console.log("entrei na validação de campos");
-        if (document.getElementById("descricao").value == '') {
+        if (document.getElementById("descricao").value === '') {
             Swal.fire({
                 position: 'center',
                 icon: 'error',
@@ -153,7 +153,7 @@
                 timer: 1000
             });
             $("#descricao").focus();
-        } else if (document.getElementById("datadocumento").value == '') {
+        } else if (document.getElementById("datadocumento").value === '') {
             Swal.fire({
                 position: 'center',
                 icon: 'error',
@@ -162,7 +162,7 @@
                 timer: 1000
             });
             $("#datadocumento").focus();
-        } else if (document.getElementById("valordespesa").value == '') {
+        } else if (document.getElementById("valordespesa").value === '') {
             Swal.fire({
                 position: 'center',
                 icon: 'error',
@@ -194,7 +194,7 @@
                     function (data) {
                         console.log("reposta servlet->");
                         console.log(data);
-                        if (data == 1) {
+                        if (data === 1) {
                             Swal.fire({
                                 position: 'center',
                                 icon: 'success',
@@ -204,7 +204,7 @@
                                 timer: 10000
                             }).then(function(){
                                 window.location.href = "${pageContext.request.contextPath}/DespesaListar";
-                            })
+                            });
                         } else {
                             Swal.fire({
                                 position: 'center',
@@ -215,7 +215,7 @@
                                 timer: 10000
                             }).then(function(){
                                 window.location.href = "${pageContext.request.contextPath}/DespesaListar";
-                            })
+                            });
                         }
                     },
             error:

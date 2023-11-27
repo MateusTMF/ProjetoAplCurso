@@ -53,7 +53,7 @@
                         },
                         success:
                                 function (data) {
-                                    if (data == 'ok') {
+                                    if (data === 'ok') {
                                         window.location.href = "${pageContext.request.contextPath}/cadastros/homeLogado.jsp";
                                     } else {
                                         $('#submit').removeAttr('disabled');
@@ -83,7 +83,7 @@
                 $('#tipo').empty(); //..limpa select de tipo de usuario.
                 loginUsuario = $('#login').val();
                 console.log(loginUsuario);
-                if (loginUsuario != 'null')
+                if (loginUsuario !== 'null')
                 {
                     console.log("vai rodar o ajax");
                     //console.log(idEst);

@@ -102,7 +102,7 @@
                     },
                     success:
                         function(data){
-                            if(data == 1){
+                            if(data === 1){
                                 Swal.fire({
                                     position: 'top-end',
                                     icon: 'success',
@@ -110,7 +110,7 @@
                                     text: 'Despesa excluída com sucesso!',
                                     showConfirmButton: false,
                                     timer: 2000
-                                })
+                                });
                             } else {
                                 Swal.fire({
                                     position: 'top-end',
@@ -119,7 +119,7 @@
                                     text: 'Não foi possível excluir a despesa!',
                                     showConfirmButton: false,
                                     timer: 2000
-                                })
+                                });
                             }
                             window.location.href = "${pageContext.request.contextPath}/DespesaListar";
                         },

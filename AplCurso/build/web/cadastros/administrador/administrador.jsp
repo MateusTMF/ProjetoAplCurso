@@ -242,12 +242,12 @@
         document.getElementById('idpessoa').value = valor;
         document.getElementById('idadministrador').value = valor;
         var idAdm = valor;
-        if (idAdm != "0"){
+        if (idAdm !== "0"){
             //existe administrador para buscar (alteração)
             $.getJSON('AdministradorCarregar', {idAdministrador: idAdm}, function(respostaServlet){
                 console.log(respostaServlet);
                 var id = respostaServlet.idAdministrador;
-                if(id != "0"){
+                if(id !== "0"){
                     $('#idpessoa').val(respostaServlet.idPessoa);
                     $('#idadministrador').val(respostaServlet.idAdministrador);
                     $('#situacao').val(respostaServlet.situacao);
@@ -275,7 +275,7 @@
             $.getJSON('PessoaBuscarCpfCnpj', {cpfcnpjpessoa: idM, tipopessoa: tipoPessoa}, function (respostaAdm) {
                 console.log(respostaAdm);
                 //var id = respostaAdm.idAdministrador;
-                if (respostaAdm != null)
+                if (respostaAdm !== null)
                 {
                     $('#idadministrador').val(respostaAdm.idAdministrador);
                     $('#permitelogin').val(respostaAdm.permiteLogin);
@@ -297,7 +297,7 @@
                     $.getJSON('PessoaBuscarCpfCnpj', {cpfcnpjpessoa: idM, tipopessoa: tipoPessoa}, function (respostaPessoa) {
                         console.log(respostaPessoa);
                         var id = respostaPessoa.idPessoa;
-                        if (id != "0")
+                        if (id !== "0")
                         {
                             $('#idpessoa').val(respostaPessoa.idPessoa);
                             $('#nomepessoa').val(respostaPessoa.nome);
@@ -339,7 +339,7 @@
                     },
                     success:
                         function(data){
-                            if(data == 1){
+                            if(data === 1){
                                 Swal.fire({
                                     position: 'top-end',
                                     icon: 'success',
@@ -349,7 +349,7 @@
                                     timer: 10000
                                 }).then(function(){
                                     window.location.href = "${pageContext.request.contextPath}/AdministradorListar";
-                                })
+                                });
                             } else {
                                 Swal.fire({
                                     position: 'top-end',
@@ -360,7 +360,7 @@
                                     timer: 10000
                                 }).then(function(){
                                     window.location.href = "${pageContext.request.contextPath}/AdministradorListar";
-                                })
+                                });
                             }
                         },
                     error:
@@ -374,7 +374,7 @@
     
     function validarCampos() {
         console.log("entrei na validação de campos");
-        if (document.getElementById("nomepessoa").value == '') {
+        if (document.getElementById("nomepessoa").value === '') {
             Swal.fire({
                 position: 'center',
                 icon: 'error',
@@ -383,7 +383,7 @@
                 timer: 2000
             });
             $("#nome").focus();
-        } else if (document.getElementById("datanascimento").value == '') {
+        } else if (document.getElementById("datanascimento").value === '') {
             Swal.fire({
                 position: 'center',
                 icon: 'error',
@@ -392,7 +392,7 @@
                 timer: 2000
             });
             $("#datanascimento").focus();
-        } else if (document.getElementById("idcidade").value == 'nulo') {
+        } else if (document.getElementById("idcidade").value === 'nulo') {
             Swal.fire({
                 position: 'center',
                 icon: 'error',
@@ -430,7 +430,7 @@
                     function (data) {
                         console.log("reposta servlet->");
                         console.log(data);
-                        if (data == 1) {
+                        if (data === 1) {
                             Swal.fire({
                                 position: 'center',
                                 icon: 'success',
@@ -440,7 +440,7 @@
                                 timer: 10000
                             }).then(function(){
                                 window.location.href = "${pageContext.request.contextPath}/AdministradorListar";
-                            })
+                            });
                         } else {
                             Swal.fire({
                                 position: 'center',
@@ -451,7 +451,7 @@
                                 timer: 10000
                             }).then(function(){
                                 window.location.href = "${pageContext.request.contextPath}/AdministradorListar";
-                            })
+                            });
                         }
                     },
             error:
@@ -465,7 +465,7 @@
         $('#idcidade').empty();
         idEst = $('#idestado').val();
         console.log("entrou buscar estado");
-        if (idEst != 'null')
+        if (idEst !== 'null')
         {
             console.log("estado = " + idEst);
             url = "CidadeBuscarPorEstado?idestado=" + idEst;
